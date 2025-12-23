@@ -9,7 +9,7 @@ import {
   FaGooglePlay,
 } from "react-icons/fa";
 import colors from "../../../theme/colors";
-import logo from "../../../assets/icons/GraduationCap.svg";
+import logo from "../../../assets/icons/graduationCap.svg";
 import "./MyFooter.css";
 import { NavLink } from "react-router";
 import { useTranslation } from "react-i18next";
