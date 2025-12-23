@@ -39,13 +39,13 @@ import writer5 from "../../../src/assets/images/persons/person_5.jpg"
 
 import companyLogo from "../../assets/icons/AMG.CO.svg";
 
-import companyLogo1 from "../../../src/assets/images/companies/companyLogo(1).svg";
-import companyLogo2 from "../../../src/assets/images/companies/companyLogo(2).svg";
-import companyLogo3 from "../../../src/assets/images/companies/companyLogo(3).svg";
-import companyLogo4 from "../../../src/assets/images/companies/companyLogo(4).svg";
-import companyLogo5 from "../../../src/assets/images/companies/companyLogo(5).svg";
-import companyLogo6 from "../../../src/assets/images/companies/companyLogo(6).svg";
-import companyLogo7 from "../../../src/assets/images/companies/companyLogo(7).svg";
+import companyLogo1 from "../../../src/assets/images/companies/CompanyLogo(1).svg";
+import companyLogo2 from "../../../src/assets/images/companies/CompanyLogo(2).svg";
+import companyLogo3 from "../../../src/assets/images/companies/CompanyLogo(3).svg";
+import companyLogo4 from "../../../src/assets/images/companies/CompanyLogo(4).svg";
+import companyLogo5 from "../../../src/assets/images/companies/CompanyLogo(5).svg";
+import companyLogo6 from "../../../src/assets/images/companies/CompanyLogo(6).svg";
+import companyLogo7 from "../../../src/assets/images/companies/CompanyLogo(7).svg";
 
 import { useTranslation } from "react-i18next";
 
