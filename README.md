@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# 🌐 Multilingual Blog Platform (React + Bootstrap)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **React.js application** with multilingual support (Arabic & English), featuring user authentication, article management, and a modern UI built with **React-Bootstrap** and **Swiper.js**.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🔐 Authentication** – Login, logout, and user session handling.
+- **🌍 Multilingual** – Arabic (RTL) & English (LTR) support using `i18next`.
+- **📰 Blog System** – Create and manage articles with images.
+- **📱 Responsive Design** – Optimized for desktop & mobile.
+- **📑 Profile Management** – User account page with settings.
+- **🎨 UI Components**
+  - Offcanvas navigation menu with RTL/LTR support.
+  - Swiper carousel for browsing writers or content.
+  - Dropdown menu with localized alignment.
+- **⚡ Smooth UX** – Prevents overflow in menus, dynamic direction switching, and localized navigation.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** [React.js](https://reactjs.org/)
+- **UI Framework:** [React-Bootstrap](https://react-bootstrap.github.io/)
+- **i18n:** [react-i18next](https://react.i18next.com/)
+- **Carousel:** [Swiper.js](https://swiperjs.com/react)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+ ├── providers/        # React context & cubits (Auth, Main, etc.)
+ ├── screens/          # Pages (Account, Articles, Profile, etc.)
+ ├── components/       # Reusable UI components
+ │    ├── cards/       # Cards (e.g., WriterCard)
+ │    ├── layout/      # Navbar, Offcanvas, Dropdown
+ │    └── swiper/      # Swiper carousel wrapper
+ ├── services/         # API calls & helpers
+ ├── utils/            # Utility functions
+ ├── l10n/             # Language JSON files (ar, en)
+ ├── App.js            # Main app entry
+ └── index.js          # React entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Installation & Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/multilingual-blog.git
+   cd multilingual-blog
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**
+
+   ```bash
+   npm start
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🌐 i18n (Language Switching)
+
+- App supports **Arabic (RTL)** and **English (LTR)**.
+- Swiper, Offcanvas, and Dropdown components dynamically adapt direction.
+- To add new languages, update `src/l10n/` and configure `i18next`.
+
+---
+
+## 📸 Screenshots
+
+| English (LTR)                          | Arabic (RTL)                          |
+| -------------------------------------- | ------------------------------------- |
+| ![English UI](docs/screenshots/en.png) | ![Arabic UI](docs/screenshots/ar.png) |
+
+---
+
+## ✅ To-Do / Future Enhancements
+
+- 🔎 Add search & filtering for articles.
+- 🌓 Dark mode support.
+- 🗄️ Backend integration for persistent authentication.
+- 📊 Dashboard with analytics for writers.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a new branch (`feature/awesome-feature`)
+3. Commit changes (`git commit -m "Add awesome feature"`)
+4. Push the branch (`git push origin feature/awesome-feature`)
+5. Create a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+✨ Built with love using **React & Bootstrap**
