@@ -38,7 +38,7 @@ function App() {
         <title>Articula</title>
         <meta name="description" content="All articles you search for" />
         <meta name="keywords" content="Articula, Articles, Authors" />
-        <link rel="icon" href={logoIcon} />
+        {/* <link rel="icon" href={logoIcon} /> */}
       </Helmet>
 
       <BrowserRouter>
