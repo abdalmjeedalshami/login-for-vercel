@@ -3,7 +3,7 @@ import MyTag from "../../common/my_tag/MyTag";
 import "./JobCard.css";
 import colors from "../../../theme/colors";
 import docIcon from "../../../assets/icons/doc.svg";
-import clockIcon from "../../../assets/icons/clock.svg";
+import clockIcon from "../../../assets/icons/Clock.svg";
 import chartIcon from "../../../assets/icons/bar-chart.svg";
 import { useTranslation } from "react-i18next";
 
