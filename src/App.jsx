@@ -5,7 +5,7 @@ import "./App.css";
 import "./theme/colors";
 import "./styles/_variables.css";
 import Login from "./pages/login/Login";
-import logoIcon from "./assets/icons/GraduationCap.svg";
+import logoIcon from "./assets/icons/graduationCap.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
@@ -38,7 +38,7 @@ function App() {
         <title>Articula</title>
         <meta name="description" content="All articles you search for" />
         <meta name="keywords" content="Articula, Articles, Authors" />
-        {/* <link rel="icon" href={logoIcon} /> */}
+        <link rel="icon" href={logoIcon} />
       </Helmet>
 
       <BrowserRouter>
