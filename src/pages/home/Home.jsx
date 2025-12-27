@@ -49,9 +49,6 @@ import companyLogo7 from "../../../src/assets/images/companies/CompanyLogo(7).sv
 
 import { useTranslation } from "react-i18next";
 
-import MyAppBar from "../../components/layout/my_appBar/MyAppBar"
-
-
 const categoryImages = [
   {
     id: 1,
@@ -450,7 +447,6 @@ const HomePage = () => {
   ];
   return (
     <>
-      <MyAppBar />
       <Helmet>
         <title>Home | Articula</title>
         <meta name="description" content="This is the home page of Articula" />

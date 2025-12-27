@@ -10,6 +10,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet";
 import HomePage from "../src/pages/home/Home"
+import MyAppBar from "./components/layout/my_appBar/MyAppBar";
+
 
 function App() {
   useEffect(() => {
@@ -41,8 +43,14 @@ function App() {
         <link rel="icon" href={logoIcon} />
       </Helmet>
 
+
+
+
       <BrowserRouter>
+      <MyAppBar logo={logoIcon}/>
+
         <Routes>
+
           
           <Route path="/login" element={ <Login />} />
           <Route path="/" element={<HomePage />} />
