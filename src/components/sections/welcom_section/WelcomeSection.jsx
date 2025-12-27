@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 const WelcomeSection = ({ title, subtitle, image }) => {
   const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
+  
   return (
     <Container
       fluid

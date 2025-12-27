@@ -8,110 +8,113 @@ import MySpinner from "../../components/common/mySpinner/MySpinner";
 import { useTranslation } from "react-i18next";
 
 const Account = () => {
-  const [ user, setUser ] = useState({
+  const [user, setUser] = useState({
     uid: [
-        {
-            value: 71
-        }
+      {
+        value: 71,
+      },
     ],
     uuid: [
-        {
-            value: "5857f9c2-36f0-4308-baa0-2467cd0ac6fe"
-        }
+      {
+        value: "5857f9c2-36f0-4308-baa0-2467cd0ac6fe",
+      },
     ],
     langcode: [
-        {
-            value: "en"
-        }
+      {
+        value: "en",
+      },
     ],
     preferred_langcode: [
-        {
-            value: "en"
-        }
+      {
+        value: "en",
+      },
     ],
     preferred_admin_langcode: [],
     name: [
-        {
-            value: "abdalmjeed"
-        }
+      {
+        value: "abdalmjeed",
+      },
     ],
     mail: [
-        {
-            value: "abd.almjeed.alshami.1@gmail.com"
-        }
+      {
+        value: "abd.almjeed.alshami.1@gmail.com",
+      },
     ],
     timezone: [
-        {
-            value: "Europe/Istanbul"
-        }
+      {
+        value: "Europe/Istanbul",
+      },
     ],
     created: [
-        {
-            value: "2025-07-08T20:20:21+00:00",
-            format: "Y-m-d\\TH:i:sP"
-        }
+      {
+        value: "2025-07-08T20:20:21+00:00",
+        format: "Y-m-d\\TH:i:sP",
+      },
     ],
     access: [
-        {
-            value: "2025-08-06T20:20:21+00:00",
-            format: "Y-m-d\\TH:i:sP"
-        }
+      {
+        value: "2025-08-06T20:20:21+00:00",
+        format: "Y-m-d\\TH:i:sP",
+      },
     ],
     changed: [
-        {
-            value: "2025-07-08T20:40:53+00:00",
-            format: "Y-m-d\\TH:i:sP"
-        }
+      {
+        value: "2025-07-08T20:40:53+00:00",
+        format: "Y-m-d\\TH:i:sP",
+      },
     ],
     default_langcode: [
-        {
-            value: true
-        }
+      {
+        value: true,
+      },
     ],
     path: [
-        {
-            alias: "",
-            pid: null,
-            langcode: "en"
-        }
+      {
+        alias: "",
+        pid: null,
+        langcode: "en",
+      },
     ],
     field_gender: [
-        {
-            target_id: 9,
-            target_type: "taxonomy_term",
-            target_uuid: "f85eac56-91a7-4d6b-b9ed-25b33b01e0ad",
-            url: "/api/taxonomy/term/9"
-        }
+      {
+        target_id: 9,
+        target_type: "taxonomy_term",
+        target_uuid: "f85eac56-91a7-4d6b-b9ed-25b33b01e0ad",
+        url: "/api/taxonomy/term/9",
+      },
     ],
     field_mobile: [
-        {
-            value: "+963 938 957 460"
-        }
+      {
+        value: "+963 938 957 460",
+      },
     ],
     field_name: [
-        {
-            value: "Abd Al-Mjeed"
-        }
+      {
+        value: "Abd Al-Mjeed",
+      },
     ],
     field_surname: [
-        {
-            value: "Al-Shami"
-        }
+      {
+        value: "Al-Shami",
+      },
     ],
     user_picture: [],
-});
+  });
   const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
   const navigate = useNavigate();
   const [showEdit, setShowEdit] = useState(false);
   // const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [refreshFlag, setRefreshFlag] = useState(false);
 
   useEffect(() => {
-    
-  }, [refreshFlag]);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // cleanup in case the component unmounts before 2 sec
+    return () => clearTimeout(timer);
+  }, []);
 
   const deleteMyAccount = async (e) => {
     e.preventDefault();
@@ -128,9 +131,73 @@ const Account = () => {
     }
   };
 
-  if (loading) return <MySpinner />;
-  if (!user)
-    return <p className="text-center mt-5">Unable to load profile data.</p>;
+  if (loading || !user || !user.uid?.[0]?.value) {
+    return (
+      <div className="container mt-4">
+        <div className="card shadow-sm border-0 p-4">
+          {/* Top bar row */}
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <div className="d-flex align-items-center">
+              {/* Avatar */}
+              <div
+                className="placeholder rounded-circle me-3"
+                style={{ width: "80px", height: "80px" }}
+              ></div>
+
+              {/* Name, username, email */}
+              <div>
+                <div className="placeholder-glow mb-2">
+                  <span className="placeholder col-6" style={{ width: "10rem" }}></span>
+                </div>
+                <div className="placeholder-glow mb-2">
+                  <span className="placeholder col-4"></span>
+                </div>
+                <div className="placeholder-glow">
+                  <span className="placeholder col-8"></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Edit button */}
+            <div
+              className="placeholder rounded"
+              style={{ width: "100px", height: "38px" }}
+            ></div>
+          </div>
+
+          {/* User details table */}
+          <div className="table-responsive mb-4">
+            <table className="table">
+              <tbody>
+                {[...Array(5)].map((_, i) => (
+                  <tr key={i}>
+                    <td>
+                      <div className="placeholder-glow">
+                        <span className="placeholder col-6 rounded-2"></span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="placeholder-glow d-flex justify-content-end">
+                        <span className="placeholder col-6 rounded-2"></span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Delete button */}
+          <div className="text-end">
+            <div
+              className="placeholder rounded"
+              style={{ width: "180px", height: "45px" }}
+            ></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto p-5">

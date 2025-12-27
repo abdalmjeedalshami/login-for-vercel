@@ -5,11 +5,15 @@ import colors from "../../../theme/colors";
 import MyDropdown from "../../common/dropdown/MyDropdown";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import { useTranslation } from "react-i18next";
+
 
 const MyAppBar = ({ logo }) => {
   const location = useLocation();
   const path = location.pathname;
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -55,7 +59,7 @@ const MyAppBar = ({ logo }) => {
               {path === "/" && (
                 <MyButton
                   classes="ms-2"
-                  text="Sign In"
+                  text={isArabic ? "تسجيل الدخول" : "Sign In"}
                   color={colors.secondary}
                   backgroundColor={colors.primary}
                   route="/login"

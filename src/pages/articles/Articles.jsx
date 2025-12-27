@@ -127,7 +127,7 @@ const MyArticles = ({ myArticles }) => {
       field_tags: [],
     },
   ]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
 
   // UI state
@@ -158,6 +158,13 @@ const MyArticles = ({ myArticles }) => {
     { id: "7", name: "laptop" },
     { id: "8", name: "business" },
   ]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // cleanup in case the component unmounts before 2 sec
+    return () => clearTimeout(timer);
+  }, []);
 
   // Fetch whenever filters change
   useEffect(() => {
