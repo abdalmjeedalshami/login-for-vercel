@@ -34,58 +34,22 @@ const MyArticles = ({ myArticles }) => {
   const [articleAdded, setArticleAdded] = useState(false);
   const handleArticleAdded = () => setArticleAdded(true);
 
-  const [tags, setTags] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  const [selectedTagIds, setSelectedTagIds] = useState([]);
-
-  // Fetch Taxonomy Data
-  useEffect(() => {
-    async function fetchTaxonomyData() {
-      try {
-        const headers = { "Content-Type": "application/json" };
-
-        const [tagsRes, categoryRes] = await Promise.all([
-          fetch("https://tamkeen-dev.com/api/terms/tags", { headers }),
-          fetch("https://tamkeen-dev.com/api/terms/category", { headers }),
-        ]);
-
-        if (!tagsRes.ok || !categoryRes.ok) {
-          throw new Error("Failed to fetch one or more taxonomy endpoints");
-        }
-
-        const [tagsData, categoryData] = await Promise.all([
-          tagsRes.json(),
-          categoryRes.json(),
-        ]);
-
-        setTags(tagsData);
-        setCategories(categoryData);
-
-        console.info("Taxonomy terms loaded successfully");
-      } catch (error) {
-        console.error("Error fetching taxonomy terms:", error);
-      }
-    }
-
-    fetchTaxonomyData();
-  }, []);
+  const [tags, setTags] = useState([
+    { id: "1", name: "wireless" },
+    { id: "2", name: "social media" },
+    { id: "3", name: "Samsung" },
+    { id: "4", name: "iphone" },
+  ]);
+  const [categories, setCategories] = useState([
+    { id: "5", name: "Education" },
+    { id: "6", name: "technology" },
+    { id: "7", name: "laptop" },
+    { id: "8", name: "business" },
+  ]);
 
   // Fetch whenever filters change
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
-      fetchArticles({
-        setArticles,
-        setTotalPages,
-        setLoading,
-        search,
-        category,
-        tag,
-        sortBy,
-        sortOrder,
-        page,
-        itemsPerPage,
-      });
     }, 1500); // debounce for live search
 
     return () => clearTimeout(delayDebounce);
