@@ -12,10 +12,13 @@ import { Helmet } from "react-helmet";
 import HomePage from "../src/pages/home/Home";
 import MyAppBar from "./components/layout/my_appBar/MyAppBar";
 import MyNavbar from "./components/layout/my_navbar/MyNavbar";
-import About from "./pages/about/About"
-import Articles from "./pages/articles/Articles"
+import About from "./pages/about/About";
+import Articles from "./pages/articles/Articles";
 import Account from "./pages/account/Account";
-
+import Contact from "./pages/contact/Contact";
+import NotFound from "./pages/not_found/NotFound";
+import Jobs from "./pages/jobs/Jobs"
+import Faqs from "./pages/faqs/Faqs"
 
 function App() {
   useEffect(() => {
@@ -53,11 +56,15 @@ function App() {
         <MyAppBar logo={logoIcon} />
 
         <Routes>
-          <Route path="/login" element={token? <HomePage/> : <Login />} />
+          <Route path="/login" element={token ? <HomePage /> : <Login />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/articles" element={token? <Articles/> : <Login />} />
-          <Route path="/account" element={token? <Account/> : <Login />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/faqs" element={<Faqs />} />
+          <Route path="/articles" element={token ? <Articles /> : <Login />} />
+          <Route path="/account" element={token ? <Account /> : <Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </>
