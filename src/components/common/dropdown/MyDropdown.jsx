@@ -2,14 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Offcanvas, Dropdown, Button } from "react-bootstrap";
 import profileImage from "../../../assets/images/profile.webp";
-// import { handleLogout } from "../../../utils/auth";
 import "./myDropdown.css";
 import { useTranslation } from "react-i18next";
-// import { useUser } from "../../../utils/UserContext";
 
 function MyDropdown() {
-  const user  = {
-    user_picture: [{url: ""}]
+  const user = {
+    user_picture: [{ url: "" }],
   };
   // const { user } = useUser();
   const { i18n } = useTranslation();
@@ -90,7 +88,8 @@ function MyDropdown() {
               <Button
                 variant="outline-danger"
                 onClick={() => {
-                  // handleLogout(navigate);
+                  localStorage.removeItem("username");
+                  navigate("/");
                   handleClose();
                 }}
               >
@@ -138,7 +137,10 @@ function MyDropdown() {
             <Dropdown.Item
               className="d-flex justify-content-start"
               onClick={() => {
-                // handleLogout(navigate)
+                navigate("/");
+                handleClose();
+                localStorage.clear();
+                window.dispatchEvent(new Event("tokenUpdated"));
               }}
             >
               {isArabic ? "تسجيل الخروج" : "Logout"}
