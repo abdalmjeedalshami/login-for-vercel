@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
-import "./MyListGroup.css"
+import "./myListGroup.css"
 
 const ItemList = () => {
   const items = [
