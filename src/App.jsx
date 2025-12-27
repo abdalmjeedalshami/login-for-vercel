@@ -53,11 +53,11 @@ function App() {
         <MyAppBar logo={logoIcon} />
 
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={token? <HomePage/> : <Login />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/articles" element={token? <Articles/> : <Login />} />
+          <Route path="/account" element={token? <Account/> : <Login />} />
         </Routes>
       </BrowserRouter>
     </>
