@@ -26,7 +26,7 @@ const WelcomeSection = ({ title, subtitle, image }) => {
           <p style={{ color: colors.textMuted.welcome }}>{subtitle}</p>
           <div>
             <MyButton
-              classes="me-2"
+              classes=""
               text={isArabic ? "ابدأ القراءة" : "Start Reading"}
               color={colors.white}
               backgroundColor={colors.blackBackground}
@@ -35,6 +35,7 @@ const WelcomeSection = ({ title, subtitle, image }) => {
               ""
             ) : (
               <MyButton
+              classes="ms-3"
                 text={isArabic ? "إنشاء حساب" : "Create Account"}
                 color={colors.secondary}
                 backgroundColor={colors.primary}
