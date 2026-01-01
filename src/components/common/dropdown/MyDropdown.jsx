@@ -92,9 +92,10 @@ function MyDropdown() {
               <Button
                 variant="outline-danger"
                 onClick={() => {
-                  localStorage.removeItem("username");
                   navigate("/");
                   handleClose();
+                  localStorage.clear();
+                  window.dispatchEvent(new Event("tokenUpdated"));
                 }}
               >
                 {isArabic ? "تسجيل الخروج" : "Logout"}
