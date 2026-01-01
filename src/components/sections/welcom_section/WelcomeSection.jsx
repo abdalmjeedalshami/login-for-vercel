@@ -24,9 +24,9 @@ const WelcomeSection = ({ title, subtitle, image }) => {
         >
           <h1 className="fw-bold">{title}</h1>
           <p style={{ color: colors.textMuted.welcome }}>{subtitle}</p>
-          <div>
+
+          <div className="d-flex flex-wrap justify-content-start gap-3">
             <MyButton
-              classes="reading-btn"
               text={isArabic ? "ابدأ القراءة" : "Start Reading"}
               color={colors.white}
               backgroundColor={colors.blackBackground}
@@ -35,7 +35,6 @@ const WelcomeSection = ({ title, subtitle, image }) => {
               ""
             ) : (
               <MyButton
-                classes=""
                 text={isArabic ? "إنشاء حساب" : "Create Account"}
                 color={colors.secondary}
                 backgroundColor={colors.primary}
