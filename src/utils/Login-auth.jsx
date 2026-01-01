@@ -6,10 +6,9 @@ export const handleLoginAuth = async ({
   setUser,
   navigate,
 }) => {
-  console.log("The start of handleLogin method..");
+
   event.preventDefault();
-  setLogInError(false);
-  
+
   setLoading(true);
 
   try {
@@ -19,9 +18,6 @@ export const handleLoginAuth = async ({
       inputData.username === "abdalmjeed" &&
       inputData.password === "123456"
     ) {
-      console.log(inputData.username);
-      console.log(inputData.password);
-      console.log("Now new login auth fired.");
       // Local demo user
       data = {
         current_user: { uid: "1", roles: "admin", name: "abdalmjeed" },
@@ -51,12 +47,16 @@ export const handleLoginAuth = async ({
     localStorage.setItem("token", btoa(basicAuth));
     localStorage.setItem("apiToken", data.csrf_token);
 
-    window.dispatchEvent(new Event("tokenUpdated"));
-    navigate("/");
+    setTimeout(() => {
+      window.dispatchEvent(new Event("tokenUpdated"));
+      navigate("/");
+    }, 2000);
   } catch (error) {
     setLogInError(error.message);
     console.error("Login error:", error);
   } finally {
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }
 };

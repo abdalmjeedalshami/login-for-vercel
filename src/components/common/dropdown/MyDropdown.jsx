@@ -4,6 +4,7 @@ import { Offcanvas, Dropdown, Button } from "react-bootstrap";
 import profileImage from "../../../assets/images/profile.webp";
 import "./myDropdown.css";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 function MyDropdown() {
   const user = {
@@ -16,7 +17,10 @@ function MyDropdown() {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 959);
 
-  const handleClose = () => setShowOffcanvas(false);
+  const handleClose = () => {
+    setShowOffcanvas(false);
+    toast.success(isArabic ? "تم تسجيل الخروج" : "Logged out successfully");
+  };
   const handleShow = () => setShowOffcanvas(true);
 
   // Track the profile image in local state

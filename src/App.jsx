@@ -17,8 +17,10 @@ import Articles from "./pages/articles/Articles";
 import Account from "./pages/account/Account";
 import Contact from "./pages/contact/Contact";
 import NotFound from "./pages/not_found/NotFound";
-import Jobs from "./pages/jobs/Jobs"
-import Faqs from "./pages/faqs/Faqs"
+import Jobs from "./pages/jobs/Jobs";
+import Faqs from "./pages/faqs/Faqs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   useEffect(() => {
@@ -51,6 +53,7 @@ function App() {
       </Helmet>
 
       <BrowserRouter>
+        <ToastContainer position="top-center" autoClose={3000} />
         <MyNavbar />
 
         <MyAppBar logo={logoIcon} />

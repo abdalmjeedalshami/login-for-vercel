@@ -4,8 +4,13 @@ import loginImage from "../../assets/images/login/login.png";
 import colors from "../../theme/colors";
 import { useNavigate } from "react-router";
 import { handleLoginAuth } from "../../utils/Login-auth";
+import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
+
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     username: "",
@@ -23,14 +28,16 @@ const Login = () => {
   });
 
   const onSubmit = (e) => {
-    console.log("Login sumit then should run handleLoginAuth..")
     // handleLogin({
     handleLoginAuth({
       event: e,
       inputData,
       setLoading,
       setLogInError,
-      setUser,
+      setUser: (user) => {
+        setUser(user);
+        toast.success("Logged in successfully!");
+      },
       navigate,
     });
   };
@@ -67,7 +74,7 @@ const Login = () => {
               }}
             >
               <h1 data-aos="fade-down" data-aos-delay={200}>
-                Login
+                {isArabic ? "تسجيل الدخول" : "Login"}
               </h1>
 
               <form id="loginForm" onSubmit={onSubmit}>
@@ -83,7 +90,11 @@ const Login = () => {
 
                 {/* Username */}
                 <div className="mb-3" data-aos="fade-up" data-aos-delay={400}>
-                  <label className="text-muted" htmlFor="">type your username: abdalmjeed</label>
+                  <label className="text-muted" htmlFor="">
+                    {isArabic
+                      ? "اسم المستخدم: abdalmjeed"
+                      : "type your username: abdalmjeed"}
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -97,7 +108,11 @@ const Login = () => {
 
                 {/* Password */}
                 <div className="mb-3" data-aos="fade-up" data-aos-delay={500}>
-                  <label className="text-muted" htmlFor="">type your password: 123456</label>
+                  <label className="text-muted" htmlFor="">
+                    {isArabic
+                      ? "كلمة المرور: 123456"
+                      : "type your username: 123456"}
+                  </label>
                   <input
                     type="password"
                     className="form-control"
@@ -111,7 +126,15 @@ const Login = () => {
 
                 {/* Submit Button */}
                 <div data-aos="fade-up" data-aos-delay={600}>
-                  <button disabled={loading}>{loading ? "Signing in ...." : "Sign in"}</button>
+                  <button disabled={loading}>
+                    {isArabic
+                      ? loading
+                        ? "يتم التسجيل"
+                        : "تسجيل"
+                      : loading
+                      ? "Signing in ...."
+                      : "Sign in"}
+                  </button>
                 </div>
               </form>
             </div>
